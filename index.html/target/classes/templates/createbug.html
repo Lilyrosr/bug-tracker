@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Bug</title>
+</head>
+<body>
+    <h2>Create New Bug</h2>
+    <form th:action="@{/bug/save}" th:object="${bug}" method="post">
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required/><br/>
+
+        <label>Description:</label>
+        <textarea th:field="*{description}" required></textarea><br/>
+
+        <label>Priority:</label>
+        <select th:field="*{priority}">
+            <option value="LOW">LOW</option>
+            <option value="MEDIUM">MEDIUM</option>
+            <option value="HIGH">HIGH</option>
+        </select><br/>
+
+        <label>Status:</label>
+        <select th:field="*{status}">
+            <option value="OPEN">OPEN</option>
+            <option value="IN_PROGRESS">IN_PROGRESS</option>
+            <option value="RESOLVED">RESOLVED</option>
+        </select><br/>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
